@@ -13,7 +13,9 @@ COMP285-Project
 
 **Description:**
 
-A main character have different bad memories from his past that haunt him, resulting in nightmares or sometimes strange dreams. He wants these dreams to end so he needs to fight the inner demons (which is basically dark side of himself).
+2D platformer in Super Mario Brothers style. Main character whenever goes to sleep has nightmares. In order to end this bad sleep experience, character needs to fight his inner demons and figure out what is causing them.
+
+//A main character have different bad memories from his past that haunt him, resulting in nightmares or sometimes strange //dreams. He wants these dreams to end so he needs to fight the inner demons (which is basically dark side of himself).
 
 **Techincal Description:**
 
