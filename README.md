@@ -13,9 +13,7 @@ COMP285-Project
 
 **Description:**
 
-2D platformer in Super Mario Brothers style. Main character whenever goes to sleep has nightmares. In order to end this bad sleep experience, character needs to fight his inner demons and figure out what is causing them.
-
-A main character have different bad memories from his past that haunt him, resulting in nightmares or sometimes strange dreams. He wants these dreams to end so he needs to fight the inner demons (which is basically dark side of himself).
+2D platformer in Super Mario Brothers style. Whenever a main character goes to sleep, he has nightmares. In order to end this bad sleep experience, the main character needs to fight his inner demons and figure out what is the reason causing them.
 
 **Techincal Description:**
 
@@ -23,7 +21,7 @@ A main character have different bad memories from his past that haunt him, resul
 2. Every dream / every night will represent a new level, which will be different from other ones.
 3. Controls: Arrows / WASD keys for movement, Space for jumping.
 4. Java will be a primary language used on Eclipse IDE.
-5. Slick2d/lwjg libraries will be used.
+5. Slick2d / lwjg libraries will be used.
 
 Inspiration:
 ![](http://schmoesknow.com/wp-content/uploads/2010/11/7-Super-Mario-Bros-.png "Inspiration")
