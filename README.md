@@ -25,6 +25,8 @@ COMP285-Project
 4. Java will be a primary language used on Eclipse IDE.
 5. Slick2d/lwjg libraries will be used
 
+Inspiration:
+![](http://schmoesknow.com/wp-content/uploads/2010/11/7-Super-Mario-Bros-.png)
 
 ![Alt text](https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xfa1/v/t34.0-12/10723064_963143423712911_1076808026_n.jpg?oh=6d30374c60ef93b30717556d59737862&oe=542FFBD5&__gda__=1412466486_4c762c0e682b9badc1b3d99b43b9fc1e "Character prototype01")
 Character prototype01
