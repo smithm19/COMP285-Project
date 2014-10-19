@@ -24,13 +24,13 @@ COMP285-Project
 5. Slick2d / lwjg libraries will be used.
 
 Inspiration:
-![](https://raw.github.com/Tologon/COMP285-Project/images/inspiration_mario.png "Inspiration")
+![](https://github.com/Tologon/COMP285-Project/blob/master/images/inspiration_mario.png "Inspiration")
 
 Character prototype01:
-![](https://raw.github.com/Tologon/COMP285-Project/images/character_prototype_01.jpeg "Character prototype01")
+![](https://github.com/Tologon/COMP285-Project/blob/master/images/character_prototype_01.jpg "Character prototype01")
 
 Background01
-![](https://raw.github.com/Tologon/COMP285-Project/images/background_01.jpeg "Background01")
+![](https://github.com/Tologon/COMP285-Project/blob/master/images/background_01.jpg "Background01")
 
 Background02
-![](https://raw.github.com/Tologon/COMP285-Project/images/background_02.jpeg "Background02")
+![](https://github.com/Tologon/COMP285-Project/blob/master/images/background_02.jpg "Background02")
