@@ -29,7 +29,7 @@ package tantibus;
     public static void main(String args[]) throws SlickException {
     AppGameContainer app = new AppGameContainer(new GameState("Setup Test"));
      
-    app.setDisplayMode(800, 800, false);
+    app.setDisplayMode(1000, 1000, false);
     app.setShowFPS(false);
      
     app.start();
