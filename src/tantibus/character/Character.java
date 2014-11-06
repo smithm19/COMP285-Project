@@ -25,40 +25,11 @@ protected HashMap<Facing,HashMap<Gravity,Image>> sprites;
 	
 	public Character(float x, float y) throws SlickException{
 		super(x,y);
-		setSprite(new Image("images/Place_holder.png"));
+		Image img = new Image("images/Place_holder.png");
 		facing = Facing.right;
 	}
 	
-	public void setSprite(Image img) throws SlickException{
-        sprites = new HashMap<Facing,HashMap<Gravity,Image>>();
-        sprites.put(Facing.left, new HashMap<Gravity,Image>());
-        sprites.put(Facing.right, new HashMap<Gravity,Image>());
-        
-        Image img2;
-        
-        sprites.get(Facing.right).put(Gravity.up, img.getFlippedCopy(false, true));
-        sprites.get(Facing.right).put(Gravity.down, img);
-        img2 = new Image(img.getResourceReference());
-        img2.rotate(90);
-        img2.draw(-50,50);
-        sprites.get(Facing.right).put(Gravity.left, img2);
-        img2 = img.getFlippedCopy(false, true);
-        img2.rotate(90);
-        img2.draw(-50,50);
-        sprites.get(Facing.right).put(Gravity.right, img2);
-        
-        sprites.get(Facing.left).put(Gravity.up, img.getFlippedCopy(true, true));
-        sprites.get(Facing.left).put(Gravity.down, img.getFlippedCopy(true, false));
-        
-        img2 = img.getFlippedCopy(true, false);
-        img2.rotate(90);
-        img2.draw(-50,50);
-        sprites.get(Facing.left).put(Gravity.left, img2);
-        img2 = img.getFlippedCopy(true, true);
-        img2.rotate(90);
-        img2.draw(-50,50);
-        sprites.get(Facing.left).put(Gravity.right, img2);
-    }
+	
 	
 	public boolean isMoving(){
 		return movement;
