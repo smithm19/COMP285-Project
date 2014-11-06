@@ -13,7 +13,7 @@ public class Window extends StateBasedGame{
 	public static final int windowHeight = windowWidth / 16*9; //it will adjust to window width
 	public static final float scale = (float) (1.25*((double)windowWidth/800));
 	public static final String GameName = "Tantibus";
-	//test
+	//holder just to push to github
 	
 	public Window() {
 		

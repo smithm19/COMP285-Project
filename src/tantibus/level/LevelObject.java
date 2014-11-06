@@ -12,7 +12,7 @@ public abstract class LevelObject {
 	protected float	ySpeed = 0;
 	protected float maxFallSpeed = 1;
 				
-	
+	//holder just to push to github
 	
 	public LevelObject(float x, float y){
 		this.x = x;
