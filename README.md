@@ -1,28 +1,29 @@
 COMP285-Project
 ===============
 
-### Team Members: 
+### Team Members
 - [Maciej Domaradzki](https://github.com/maciula)   ;   domaradzkim@wit.edu  
 - [Tologon Eshimkanov](https://github.com/Tologon)   ;   eshimkanovt@wit.edu
 
 ### Project Outline
 
+**Installation:**
+
+In order to launch the game, you will the following:
+- Eclipse Standard IDE (Luna Release, 4.4.0)
+- Java (version 8 or higher)
+- Slick2D and LWJGL libraries (["Setting up Slick2D w/ Eclipse"](http://slick.ninjacave.com/wiki/index.php?title=Setting_up_Slick2D_with_Eclipse ))
+
 **Name:** Tantibus
 
-**Genre:** Platformer / Jump & Run (subgenre of Action genre)
+**Genre:** 2D side scrolling platform game
 
 **Description:**
 
-2D platformer in Super Mario Brothers style. Whenever a main character goes to sleep, he has nightmares. In order to end this bad sleep experience, the main character needs to fight his inner demons and figure out what is the reason causing them.
+The Tantibus is a 2-dimensional (2D) side scrolling platform game about the main character’s dreams. Whenever the character goes to sleep, he has nightmares. In order to end his bad dreaming experience, the main character must fight his inner dark side and figure out what is causing the nightmares.
+The plot revolves around the main character and his dreaming experience. Each dream is represented by a unique level. The hero meets various demons that describe a level. In general there will be seven basic levels that depict seven deadly sins: lust, greed, gluttony, envy, anger, pride, and sloth. In order to pass a level, the main character must defeat enemies that will try to steer the main character from the virtuous path (figuratively). In the end when the hero surpasses all of the sins, he will become a truly virtuous person and the nightmares will end.
 
-**Techincal Description:**
-
-1. 2D platformer, similar to Mario in gameplay.
-2. Every dream / every night will represent a new level, which will be different from other ones.
-3. Controls: Arrows / WASD keys for movement, Space for jumping.
-4. Java will be a primary language used on Eclipse IDE.
-5. Slick2d / lwjg libraries will be used.
-
+**Images / Art**
 Inspiration:
 ![](https://github.com/Tologon/COMP285-Project/blob/master/images/inspiration_mario.png "Inspiration")
 
