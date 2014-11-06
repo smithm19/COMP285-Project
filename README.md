@@ -12,7 +12,7 @@ COMP285-Project
 In order to launch the game, you will the following:
 - Eclipse Standard IDE (Luna Release, 4.4.0)
 - Java (version 8 or higher)
-- Slick2D and LWJGL libraries (http://slick.ninjacave.com/wiki/index.php?title=Setting_up_Slick2D_with_Eclipse "Setting up Slick2D w/ Eclipse")
+- Slick2D and LWJGL libraries (["Setting up Slick2D w/ Eclipse"](http://slick.ninjacave.com/wiki/index.php?title=Setting_up_Slick2D_with_Eclipse ))
 
 **Name:** Tantibus
 
