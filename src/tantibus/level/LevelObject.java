@@ -11,6 +11,7 @@ public abstract class LevelObject {
 	protected float	xSpeed = 0;
 	protected float	ySpeed = 0;
 	protected float maxFallSpeed = 1;
+	protected boolean onGround = true;
 				
 	//holder just to push to github
 	
