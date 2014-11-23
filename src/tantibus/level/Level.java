@@ -59,7 +59,7 @@ public class Level {
 	
 	public void render() {
 		//TODO follow tutorial
-		map.render(32, 32);
+	map.render(32, 32);
 	}
 	
 	public Gravity getGravity() {
