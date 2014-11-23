@@ -2,6 +2,7 @@ package tantibus.level;
 
 import java.util.ArrayList;
 
+import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 import tantibus.character.Player;
@@ -15,17 +16,21 @@ public class Level {
 	private Tile tiles;
 	private Gravity gravity;
 	
-	public Level(String title, Player protagonist) {
+	public Level(String title, Player protagonist) throws SlickException {
 		//TODO with "title"
-		this.protagonist = protagonist;
+		map = new TiledMap("images/levels/"+ title + ".tmx");
+		characters = new ArrayList<Character>();
+		//this.protagonist = protagonist;
+	//	addCharacters(protagonist);
+		
 	}
 	
 	public void loadObjects() {
 		//TODO follow tutorial
 	}
 	
-	public void addCharacters(Character[] characters) {
-		//TODO follow tutorial
+	public void addCharacters(Character ch) {
+		characters.add(ch);
 	}
 	
 	public ArrayList<Character> getCharacters() {
@@ -54,6 +59,7 @@ public class Level {
 	
 	public void render() {
 		//TODO follow tutorial
+		map.render(32, 32);
 	}
 	
 	public Gravity getGravity() {

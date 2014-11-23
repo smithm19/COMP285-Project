@@ -1,7 +1,10 @@
 package tantibus.state;
 
 import tantibus.character.*;
+import tantibus.controls.Controls;
+import tantibus.controls.PlayerController;
 import tantibus.level.*;
+
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.Game;
@@ -16,11 +19,11 @@ import org.newdawn.slick.state.StateBasedGame;
 
  class GameState extends BasicGameState {
 	
-	//private Level level;
+	private Level level;
 	
 	private String startlevel;
 	private Player player;
-	//private PlayerControls controls;
+	private PlayerController controls;
 	//holder just to push to github
 	
 	
@@ -32,9 +35,9 @@ import org.newdawn.slick.state.StateBasedGame;
 	public void init (GameContainer container, StateBasedGame sbg) throws SlickException{
 		player = new Player(100, 100); //need level first
 		
-		//level = new Level(startLevel, player) //load level and character + player
+		level = new Level(startlevel, player); //load level and character + player
 		
-		//playerControls = new controls(player);
+		controls = new Controls(player);
 		
 		//physics
 	}
@@ -48,7 +51,7 @@ import org.newdawn.slick.state.StateBasedGame;
 	public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException{
 		
 		g.scale(Window.scale, Window.scale);
-		//level.render();
+		level.render();
 		
 	}
 	

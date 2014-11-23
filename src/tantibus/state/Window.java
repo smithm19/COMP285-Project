@@ -23,7 +23,7 @@ public class Window extends StateBasedGame{
 	
 	public void initStatesList(GameContainer arg0) throws SlickException {
 		
-		addState(new GameState("level 0"));
+		addState(new GameState("level 1"));
 		
 		this.enterState(0);
 	}
@@ -32,7 +32,7 @@ public class Window extends StateBasedGame{
 		
 		AppGameContainer app = new AppGameContainer ((Game) new Window());
 		
-		app.setDisplayMode(windowWidth, windowHeight, false/*fullscreen*/);
+		app.setDisplayMode(windowWidth, windowHeight, false);//false = fullscreen
 		app.setTargetFrameRate(60); //60 fps
 		
 		app.start();
