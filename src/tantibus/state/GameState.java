@@ -24,7 +24,7 @@ import org.newdawn.slick.state.StateBasedGame;
 	private String startlevel;
 	private Player player;
 	private PlayerController controls;
-	//holder just to push to github
+	
 	
 	
 	
@@ -37,14 +37,15 @@ import org.newdawn.slick.state.StateBasedGame;
 		
 		level = new Level(startlevel, player); //load level and character + player
 		
-		controls = new Controls(player);
+		controls = new Controls(player); 
+		
 		
 		//physics
 	}
 	
 	public void update (GameContainer container, StateBasedGame sbg, int delta) throws SlickException{
 		
-		//playerControls.ControlInput(container.getInput(), delta, level);
+	//	------>//controls.controlInput(container.getInput(), delta); //this causes error, don't know why, will try to figure it out later
 		//physics.handlePhysics(level, delta, level.getGravity());
 	}
 	

@@ -15,8 +15,9 @@ import org.newdawn.slick.SlickException;
 public abstract class Character extends LevelObject {
 	
 	
-protected HashMap<Facing,HashMap<Gravity,Image>> sprites;
+
     
+	protected HashMap<Facing, Image> sprites;
     protected HashMap<Facing,HashMap<Gravity,Animation>> movementAnimation;
 	protected boolean movement = false;
 	protected boolean jump = false;
@@ -30,7 +31,11 @@ protected HashMap<Facing,HashMap<Gravity,Image>> sprites;
 	}
 	
 	
-	
+	public void setSprite(Image img){
+		sprites = new HashMap<Facing, Image>();
+		sprites.put(Facing.left, img);
+		sprites.put(Facing.right, img);
+	}
 	public boolean isMoving(){
 		return movement;
 	}
@@ -58,51 +63,31 @@ protected HashMap<Facing,HashMap<Gravity,Image>> sprites;
 		}
 	}
 	
-	public void movementLeft(int delta, Gravity gravity){
-		switch(gravity){
-			case up:
-			case down:
+	public void movementLeft(int delta){
+		
 				if(xSpeed >- maxSpeed){
 					xSpeed -= maxSpeed*delta;
 					if(xSpeed < -maxSpeed){
 						xSpeed = -maxSpeed;
 					}
-				}
-				break;
-			case right:
-			case left:
-				if(ySpeed >- maxSpeed){
-					ySpeed -= maxSpeed*delta;
-					if(ySpeed < -maxSpeed){
-						ySpeed = -maxSpeed;
-					}
-				}
-				break;
+				
+		
+				
+				
+			
 		}
 		movement = true;
 		facing = Facing.left;
 	}
 	
-	public void movemenRight(int delta, Gravity gravity){
-		switch(gravity){
-			case up:
-			case down:
+	public void movementRight(int delta){
+		
 				if(xSpeed < maxSpeed){
 					xSpeed += maxSpeed*delta;
 					if(xSpeed > -maxSpeed){
 						xSpeed = maxSpeed;
 				}
-				}
-				break;
-			case right:
-			case left:
-				if(ySpeed < maxSpeed){
-					ySpeed += maxSpeed*delta;
-					if(ySpeed > -maxSpeed){
-						ySpeed = -maxSpeed;
-					}
-				}
-				break;
+			
 			}
 		movement = true;
 		facing = Facing.right;
@@ -110,11 +95,12 @@ protected HashMap<Facing,HashMap<Gravity,Image>> sprites;
 
 	public void render(float offset_x, float offset_y, Gravity gravity){
 		
+	
 		if(movementAnimation != null & movement){
 			movementAnimation.get(facing).get(gravity).draw(x-2-offset_x,y-2-offset_y);	
 		}
 		else{
-			sprites.get(facing).get(gravity).draw(x-2-offset_x,y-2-offset_y);	
+			sprites.get(facing).draw(x-2-offset_x,y-2-offset_y);	
 		}
 		
 	}

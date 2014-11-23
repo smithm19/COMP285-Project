@@ -11,17 +11,17 @@ import tantibus.enums.Gravity;
 public class Level {
 	private TiledMap map;
 	private ArrayList<Character> characters;
-	private Player protagonist;
+	private Player player;
 	private ArrayList<LevelObject> levelObjects;
 	private Tile tiles;
 	private Gravity gravity;
 	
-	public Level(String title, Player protagonist) throws SlickException {
+	public Level(String title, Player player) throws SlickException {
 		//TODO with "title"
 		map = new TiledMap("images/levels/"+ title + ".tmx");
 		characters = new ArrayList<Character>();
-		//this.protagonist = protagonist;
-	//	addCharacters(protagonist);
+		this.player = player;
+		
 		
 	}
 	
@@ -59,7 +59,8 @@ public class Level {
 	
 	public void render() {
 		//TODO follow tutorial
-	map.render(32, 32);
+	map.render(0, 0);
+	player.render(-2, -3, gravity);
 	}
 	
 	public Gravity getGravity() {

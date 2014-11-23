@@ -13,7 +13,7 @@ public class Window extends StateBasedGame{
 	public static final int windowHeight = windowWidth / 16*9; //it will adjust to window width
 	public static final float scale = (float) (1.25*((double)windowWidth/800));
 	public static final String GameName = "Tantibus";
-	//holder just to push to github
+	
 	
 	public Window() {
 		
@@ -33,9 +33,9 @@ public class Window extends StateBasedGame{
 		AppGameContainer app = new AppGameContainer ((Game) new Window());
 		
 		app.setDisplayMode(windowWidth, windowHeight, false);//false = fullscreen
-		app.setTargetFrameRate(60); 
+		app.setTargetFrameRate(60); //60 fps
 		
-		app.start();
+		app.start(); //disregard if error points here. Error is in GameState commented it out fo now
 	}
 		
 	}
