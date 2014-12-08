@@ -1,13 +1,5 @@
 package tantibus.state;
 
-import tantibus.character.*;
-import tantibus.controls.Controls;
-import tantibus.controls.PlayerController;
-import tantibus.level.*;
-
-import org.newdawn.slick.AppGameContainer;
-import org.newdawn.slick.BasicGame;
-import org.newdawn.slick.Game;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -15,9 +7,14 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import tantibus.character.Player;
+import tantibus.controls.Controls;
+import tantibus.controls.PlayerController;
+import tantibus.level.Level;
 
 
- class GameState extends BasicGameState {
+
+class GameState extends BasicGameState {
 	
 	private Level level;
 	
@@ -33,7 +30,7 @@ import org.newdawn.slick.state.StateBasedGame;
 	}
 	
 	public void init (GameContainer container, StateBasedGame sbg) throws SlickException{
-		player = new Player(100, 100); //need level first
+		player = new Player(100,100); 
 		
 		level = new Level(startlevel, player); //load level and character + player
 		
@@ -45,7 +42,8 @@ import org.newdawn.slick.state.StateBasedGame;
 	
 	public void update (GameContainer container, StateBasedGame sbg, int delta) throws SlickException{
 		
-	//	------>//controls.controlInput(container.getInput(), delta); //this causes error, don't know why, will try to figure it out later
+		controls.controlKeyboardInput(container.getInput(), delta);
+	
 		//physics.handlePhysics(level, delta, level.getGravity());
 	}
 	
@@ -66,7 +64,7 @@ import org.newdawn.slick.state.StateBasedGame;
 		
 		return 0;
 	}
- }
+}
 	
 	
 	

@@ -35,7 +35,7 @@ public class Window extends StateBasedGame{
 		app.setDisplayMode(windowWidth, windowHeight, false);//false = fullscreen
 		app.setTargetFrameRate(60); //60 fps
 		
-		app.start(); //disregard if error points here. Error is in GameState commented it out fo now
+		app.start(); 
 	}
 		
-	}
+}
