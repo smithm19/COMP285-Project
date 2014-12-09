@@ -14,17 +14,19 @@ public abstract class Character extends LevelObject {
 	    
 	protected HashMap<Facing, Image> sprites;
 	protected HashMap<Facing, Animation> movementAnimation;
+	protected HashMap<Facing, Animation> jumpingAnimation;
 	protected boolean movement = false;
 	protected boolean jump = false;
+	protected boolean jumpingMovement = false;
 	protected float maxSpeed = 1;
-	protected float accelerationSpeed = 1;
-	protected float decelerationSpeed = 1;
+	protected float accelerationSpeed = 2;
+	protected float decelerationSpeed = 2;
 	protected Facing facing;
 
 	public Character(float x, float y) throws SlickException{
 		super(x,y);
 		setSprite(new Image("images/Place_holder.png"));
-		facing = Facing.left;
+		facing = Facing.right;
 	}
 
 
@@ -42,6 +44,16 @@ public abstract class Character extends LevelObject {
 			facingLeftAnimation.addFrame(i.getFlippedCopy(true, false), frameDuration);
 		}
 		movementAnimation.put(Facing.right, facingLeftAnimation);
+	}
+	
+	protected void setJumpingAnimation(Image[] images, int frameDuration){
+		jumpingAnimation = new HashMap<Facing, Animation>();
+		jumpingAnimation.put(Facing.left, new Animation(images, frameDuration));
+		Animation facingLeftAnimation = new Animation();
+		for(Image i: images){
+			facingLeftAnimation.addFrame(i.getFlippedCopy(true, false), frameDuration);
+		}
+		jumpingAnimation.put(Facing.right, facingLeftAnimation);
 	}
 	public boolean isMoving(){
 		return movement;
@@ -66,18 +78,20 @@ public abstract class Character extends LevelObject {
 		}
 
 	}
-	public void jump(){
+	public void jump(int delta){
 		if(onGround){
-			
-			ySpeed = -0.4f;
-			
+			ySpeed = 20f;	
+			jumpingMovement = true;
 		}
+		else
+			jumpingMovement = false;
+			
 	}
 
 	public void movementLeft(int delta){
 
 		if(xSpeed >- maxSpeed){
-			xSpeed -= maxSpeed*delta;
+			xSpeed -= accelerationSpeed*delta;
 			if(xSpeed < -maxSpeed){
 				xSpeed = -maxSpeed;
 			}
@@ -90,7 +104,7 @@ public abstract class Character extends LevelObject {
 	public void movementRight(int delta){
 
 		if(xSpeed < maxSpeed){
-			xSpeed += maxSpeed*delta;
+			xSpeed += accelerationSpeed*delta;
 			if(xSpeed > -maxSpeed){
 				xSpeed = maxSpeed;
 			}
@@ -99,15 +113,19 @@ public abstract class Character extends LevelObject {
 		movement = true;
 		facing = Facing.right;
 	}
+	
 
 	public void render(float offsetX, float offsetY){
 
 
-		if(movementAnimation != null & movement){
-			movementAnimation.get(facing).draw(x-2-offsetX,y-2-offsetY);	
+		if(movement){
+			movementAnimation.get(facing).draw(x-1-offsetX,y-1-offsetY);	
+		}
+		else if(jumpingMovement){
+			jumpingAnimation.get(facing).draw(x-20+offsetX,y-20+offsetY);	
 		}
 		else{
-			sprites.get(facing).draw(x-2-offsetX,y-2-offsetY);	
+			sprites.get(facing).draw(x-offsetX,y-offsetY);	
 		}
 
 	}

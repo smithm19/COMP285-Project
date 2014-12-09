@@ -31,10 +31,10 @@ public class Level {
 		levelObjects = new ArrayList<LevelObject>();
 		
 		this.player = player;
-		addCharacter(player); //TODO error
+		addCharacter(player);
 		
 		loadObjects();
-		background = new Image("images/backgrounds/" + map.getMapProperty("background", "background_02.jpg"));
+		background = new Image("images/backgrounds/" + map.getMapProperty("","background_02.jpg"));
 	}
 	
 	public void loadObjects() throws SlickException {
@@ -116,7 +116,7 @@ public class Level {
 			o.render(offsetX, offsetY);
 		}
 		for(Character ch: characters){
-			ch.render(offsetX, offsetY); // TODO error
+			ch.render(offsetX, offsetY); 
 		}	
 	}
 	
@@ -135,9 +135,9 @@ public class Level {
 	     float mapXScrollValue = ((float)map.getWidth()*32-Window.windowWidth/Window.scale);
 	     float mapYScrollValue = ((float)map.getHeight()*32-Window.windowHeight/Window.scale);
 	     
-	     float scrollXFactor = backgroundXScrollValue/mapXScrollValue * -1;
+	     float scrollXFactor = backgroundXScrollValue/mapXScrollValue * 1;
 	     float scrollYFactor = backgroundYScrollValue/mapYScrollValue * -1;
 	     
-	     background.draw(this.getXOffset()*scrollXFactor,this.getYOffset()*scrollYFactor);
+	     background.draw(this.getXOffset()*scrollXFactor, this.getYOffset()*scrollYFactor);
 	}
 }

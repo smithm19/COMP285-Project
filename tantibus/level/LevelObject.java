@@ -1,6 +1,7 @@
 package tantibus.level;
 
-import tantibus.enums.Gravity;
+import tantibus.physics.AACollisionDetection;
+import tantibus.physics.CollisionDetection;
 
 
 
@@ -12,13 +13,13 @@ public abstract class LevelObject {
 	protected float	ySpeed = 0;
 	protected float maxFallSpeed = 1;
 	protected boolean onGround = true;
-	//protected BoundingShape boundingShape;
+	protected CollisionDetection collisionDetection;
 
 	public LevelObject(float x, float y){
 		this.x = x;
 		this.y = y;
 		
-		//boundingShape = new AABoundingRect(x,y, 32, 32);
+		collisionDetection = new AACollisionDetection(x,y, 32, 32);
 	}
 	
 	public void applyGravity(float gravity){
@@ -57,18 +58,18 @@ public abstract class LevelObject {
 	
 	public void setY(float f){
 		y = f;
-		//updateBoundingShape();
+		updateCollisionDetection();
 		
 	}
 	
 	public void setX(float f){
 		x = f;
-		//updateBoundingShape();
+		updateCollisionDetection();
 	}
 	
-	/*public void updateBoundingShape(){
-    	boundingShape.updatePosition(x,y);
-	}*/
+	public void updateCollisionDetection(){
+		collisionDetection.updatePosition(x,y);
+	}
 	
 	public boolean isOnGround(){
 		return onGround;
@@ -78,9 +79,9 @@ public abstract class LevelObject {
 		onGround = oG;
 	}
 	
-	/*public BoundingShape getBoundingShape(){
-		return boundingShape;
-	}*/
+	public CollisionDetection getCollisionDetection(){
+		return collisionDetection;
+	}
 	
 	public abstract void render(float offset_x, float offset_y);
 

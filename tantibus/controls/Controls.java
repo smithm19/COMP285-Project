@@ -4,7 +4,7 @@ import org.newdawn.slick.Input;
 
 import tantibus.character.Player;
 
-//Probably something in here, though it looks good.
+
 public class Controls extends PlayerController {
 	public Controls(Player player) {
 		super(player);
@@ -27,7 +27,7 @@ public class Controls extends PlayerController {
 		}
 		
 		if(input.isKeyDown(Input.KEY_UP )||input.isKeyDown(Input.KEY_W)){
-			player.jump();
+			player.jump(delta);
 		}
 		
 	}

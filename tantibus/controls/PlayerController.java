@@ -4,7 +4,6 @@ import org.newdawn.slick.Input;
 
 import tantibus.character.Player;
 
-//Probably something in here, though it looks good.
 public abstract class PlayerController {
 	protected Player player;
 	
