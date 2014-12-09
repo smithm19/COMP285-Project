@@ -7,32 +7,37 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 import tantibus.state.Window;
+import tantibus.character.Character;
 import tantibus.character.Player;
 import tantibus.enums.Gravity;
 
 public class Level {
 	private TiledMap map;
-	private ArrayList<Character> character;
-	private ArrayList<LevelObject> levelObject;
+	
+	private ArrayList<Character> characters;
 	private Player player;
+	
 	private ArrayList<LevelObject> levelObjects;
+	
 	private Tile[][] tiles;
+	
 	private Gravity gravity;
 	private Image background;
 	
 	public Level(String title, Player player) throws SlickException {
-		
 		map = new TiledMap("images/levels/"+ title + ".tmx");
-		character = new ArrayList<Character>();
-		levelObject = new ArrayList<LevelObject>();
+		characters = new ArrayList<Character>();
+		
+		levelObjects = new ArrayList<LevelObject>();
+		
 		this.player = player;
 		addCharacter(player); //TODO error
 		
-		loadObject();
+		loadObjects();
 		background = new Image("images/backgrounds/" + map.getMapProperty("background", "background_02.jpg"));
 	}
 	
-	public void loadObject() throws SlickException {
+	public void loadObjects() throws SlickException {
 		int objectAmount = map.getObjectCount(0);
 		for(int i = 0; i< objectAmount; ++i){
 			switch(map.getObjectName(0, i)){
@@ -44,19 +49,19 @@ public class Level {
 	}
 	
 	public void addCharacter(Character ch) {
-		character.add(ch);	
-		}
+		characters.add(ch);	
+	}
 	
 	public ArrayList<Character> getCharacters() {
-		return character;
+		return characters;
 	}
 	
 	public void addLevelObject(LevelObject object) {
-		levelObject.add(object);
+		levelObjects.add(object);
 	}
 	
-	public ArrayList<LevelObject> getLevelObject(){
-		return levelObject;
+	public ArrayList<LevelObject> getLevelObjects(){
+		return levelObjects;
 	}
 	
 	public Tile[][] getTiles() {
@@ -107,11 +112,11 @@ public class Level {
 		backgroundRender();
 		map.render(-(offsetX%32), -(offsetY%32), offsetX/32, offsetY/32, 33, 19);
 		
-		for(LevelObject o: levelObject){
+		for(LevelObject o: levelObjects){
 			o.render(offsetX, offsetY);
 		}
-		for(Character ch: character){
-			ch.render(offsetX, offsetY); //TODO error
+		for(Character ch: characters){
+			ch.render(offsetX, offsetY); // TODO error
 		}	
 	}
 	
