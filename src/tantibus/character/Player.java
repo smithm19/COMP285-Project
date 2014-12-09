@@ -9,7 +9,7 @@ public class Player extends Character {
 	AACollisionDetection collisionDetection;
 	public Player(float x, float y) throws SlickException{
 		super (x,y);
-		setSprite(new Image("images/characters/p1_spritesheet.png"));
+		setSprite(new Image("images/characters/p1_walk01.png"));
 		setMovingAnimation(new Image[]{new Image("images/characters/p1_walk01.png"),
 									new Image ("images/characters/p1_walk02.png"), new Image("images/characters/p1_walk03.png"),
 									new Image("images/characters/p1_walk04.png"),new Image("images/characters/p1_walk05.png"),

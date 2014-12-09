@@ -109,7 +109,7 @@ public class Level {
 		int offsetX = getXOffset();
 		int offsetY = getYOffset();
 		
-		backgroundRender();
+		//backgroundRender();
 		map.render(-(offsetX%32), -(offsetY%32), offsetX/32, offsetY/32, 33, 19);
 		
 		for(LevelObject o: levelObjects){

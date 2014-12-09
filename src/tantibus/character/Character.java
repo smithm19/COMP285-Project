@@ -24,7 +24,7 @@ public abstract class Character extends LevelObject {
 	public Character(float x, float y) throws SlickException{
 		super(x,y);
 		setSprite(new Image("images/Place_holder.png"));
-		facing = Facing.right;
+		facing = Facing.left;
 	}
 
 
@@ -36,12 +36,12 @@ public abstract class Character extends LevelObject {
 
 	protected void setMovingAnimation(Image[] images, int frameDuration){
 		movementAnimation = new HashMap<Facing, Animation>();
-		movementAnimation.put(Facing.right, new Animation(images, frameDuration));
+		movementAnimation.put(Facing.left, new Animation(images, frameDuration));
 		Animation facingLeftAnimation = new Animation();
 		for(Image i: images){
 			facingLeftAnimation.addFrame(i.getFlippedCopy(true, false), frameDuration);
 		}
-		movementAnimation.put(Facing.left, facingLeftAnimation);
+		movementAnimation.put(Facing.right, facingLeftAnimation);
 	}
 	public boolean isMoving(){
 		return movement;
