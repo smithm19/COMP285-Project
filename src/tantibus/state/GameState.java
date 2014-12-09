@@ -23,8 +23,6 @@ class GameState extends BasicGameState {
 	private PlayerController controls;
 	
 	
-	
-	
 	public GameState(String startLevel){
 		this.startlevel = startLevel;
 	}

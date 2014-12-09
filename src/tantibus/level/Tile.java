@@ -1,19 +1,23 @@
 package tantibus.level;
 
+import tantibus.physics.CollisionDetection;
+
 public class Tile {
 	protected int x, y;
-	//protected CollisionDetection collDetect;	//implement CollisionDetection class for this to work
+	
+	protected CollisionDetection collisionDetection;
 	
 	public Tile(int x, int y) {
 		this.x = x;
 		this.y = y;
+		collisionDetection = null;
 	}
 	
-	/*implement CollisionDetection class for this to work
+	
 	public CollisionDetection getCollisionDetection() {
-		return collDetect;
+		return collisionDetection;
 	}
-	*/
+	
 	
 	public int getX() {
 		return this.x;
