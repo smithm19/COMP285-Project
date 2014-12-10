@@ -8,6 +8,7 @@ import org.newdawn.slick.tiled.TiledMap;
 
 import tantibus.state.Window;
 import tantibus.character.Character;
+import tantibus.character.Enemy;
 import tantibus.character.Player;
 import tantibus.enums.Gravity;
 
@@ -15,7 +16,9 @@ public class Level {
 	private TiledMap map;
 	
 	private ArrayList<Character> characters;
+	private ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 	private Player player;
+	private Enemy enemy;
 	
 	private ArrayList<LevelObject> levelObjects;
 	
@@ -84,6 +87,13 @@ public class Level {
 		return characters;
 	}
 	
+	public void addEnemy(Enemy e){
+		enemies.add(e);
+	}
+	
+	public ArrayList<Enemy> getEnemies(){
+		return enemies;
+	}
 	public void addLevelObject(LevelObject object) {
 		levelObjects.add(object);
 	}
@@ -146,6 +156,10 @@ public class Level {
 		for(Character ch: characters){
 			ch.render(offsetX - 20, offsetY- 100); 
 		}	
+		
+		for(Enemy e: enemies){
+			e.render(offsetX - 100, offsetY- 100);
+		}
 	}
 		
 	public void backgroundRender() {

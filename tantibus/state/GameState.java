@@ -7,6 +7,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import tantibus.character.Enemy;
 import tantibus.character.Player;
 import tantibus.controls.Controls;
 import tantibus.controls.PlayerController;
@@ -23,6 +24,7 @@ class GameState extends BasicGameState {
 	private Player player;
 	private Controls controls;
 	private Physics physics;
+	private Enemy enemy;
 	
 	
 	public GameState(String startLevel){

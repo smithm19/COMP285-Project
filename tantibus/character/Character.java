@@ -31,14 +31,14 @@ public abstract class Character extends LevelObject {
 		this.y = positionY;
 		
 		setSprite(new Image("images/Place_holder.png"));
-		facing = Facing.left;
+		facing = Facing.right;
 	}
 
 
 	public void setSprite(Image img){
 		sprites = new HashMap<Facing, Image>();
-		sprites.put(Facing.right, img.getFlippedCopy(true, false));
-		sprites.put(Facing.left, img);
+		sprites.put(Facing.left, img.getFlippedCopy(true, false));
+		sprites.put(Facing.right, img);
 	}
 
 	protected void setMovingAnimation(Image[] images, int frameDuration){
