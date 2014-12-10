@@ -27,7 +27,7 @@ public class Controls extends PlayerController{
 		}
 		
 		if(input.isKeyDown(Input.KEY_UP )||input.isKeyDown(Input.KEY_W)){
-			player.jump(delta);
+			player.jump();
 		}
 		
 	}

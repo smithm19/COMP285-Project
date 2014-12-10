@@ -23,7 +23,7 @@ public class Window extends StateBasedGame{
 	
 	public void initStatesList(GameContainer arg0) throws SlickException {
 		
-		addState(new GameState("level_0"));
+		addState(new GameState("level_1"));
 		
 		this.enterState(0);
 	}

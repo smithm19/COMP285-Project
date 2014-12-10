@@ -32,7 +32,7 @@ public class Level {
 		this.player = player;
 		addCharacter(player);
 		
-		loadTileMap();
+		//loadTileMap();
 		loadObjects();
 		background = new Image("images/backgrounds/" + map.getMapProperty("","background_02.jpg"));
 	}
@@ -97,7 +97,7 @@ public class Level {
 	}
 	
 	public int getXOffset() {
-		int offsetX =0;
+		int offsetX = 0;
 		int halfWidth = (int) (Window.windowWidth/Window.scale/2);
 		int maxX = (int) (map.getWidth()*32) - halfWidth;
 		
@@ -144,7 +144,7 @@ public class Level {
 			o.render(offsetX, offsetY);
 		}
 		for(Character ch: characters){
-			ch.render(offsetX, offsetY); 
+			ch.render(offsetX - 20, offsetY- 100); 
 		}	
 	}
 		

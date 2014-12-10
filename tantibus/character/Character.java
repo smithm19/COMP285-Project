@@ -87,15 +87,10 @@ public abstract class Character extends LevelObject {
 		}
 
 	}
-	public void jump(int delta){
+	public void jump(){
 		if(onGround){
-			positionY = positionY - (0.15f*delta);
-			jumpingMovement = true;
+			ySpeed = -0.4f;
 		}
-		else
-			positionY = positionY + (0.15f*delta);
-			jumpingMovement = false;
-			
 	}
 
 	public void movementLeft(int delta){
