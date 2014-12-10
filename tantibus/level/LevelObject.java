@@ -13,6 +13,8 @@ public abstract class LevelObject {
 	protected float	ySpeed = 0;
 	protected float maxFallSpeed = 1;
 	protected boolean onGround = true;
+	protected float positionX;
+	protected float positionY;
 	protected CollisionDetection collisionDetection;
 
 	public LevelObject(float x, float y){
@@ -32,6 +34,14 @@ public abstract class LevelObject {
 			}
 	}
 		
+	public float getYPosition(){
+		return positionY;
+	}
+	
+	public float getXPosition(){
+		return positionX;
+	}
+	
 	public float getYSpeed(){
 			return ySpeed;
 		}

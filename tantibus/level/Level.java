@@ -32,8 +32,8 @@ public class Level {
 		this.player = player;
 		addCharacter(player);
 		
-		//loadTileMap();
-		//loadObjects();
+		loadTileMap();
+		loadObjects();
 		background = new Image("images/backgrounds/" + map.getMapProperty("","background_02.jpg"));
 	}
 	
@@ -55,7 +55,7 @@ public class Level {
 		
 		if(layer == -1){
 			System.err.print("no collision layer");
-			System.exit(-1);
+			System.exit(0);
 		}
 		
 		for(int i = 0; i <map.getWidth(); ++i){

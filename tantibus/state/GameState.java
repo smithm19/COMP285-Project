@@ -22,7 +22,7 @@ class GameState extends BasicGameState {
 	private String startlevel;
 	private Player player;
 	private Controls controls;
-	Physics physics;
+	private Physics physics;
 	
 	
 	public GameState(String startLevel){
@@ -30,7 +30,7 @@ class GameState extends BasicGameState {
 	}
 	
 	public void init (GameContainer container, StateBasedGame sbg) throws SlickException{
-		player = new Player(40,100); 
+		player = new Player(100,100); 
 		
 		level = new Level(startlevel, player); //load level and character + player
 		

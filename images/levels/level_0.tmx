@@ -1,8 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="20" height="20" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="20" height="20" tilewidth="32" tileheight="32" backgroundcolor="#800006">
+ <tileset firstgid="1" name="grassMid" tilewidth="32" tileheight="32">
+  <image source="../COMP285-Project/images/levels/Platformer Pack/Tiles/grassMid.png" width="70" height="70"/>
+  <terraintypes>
+   <terrain name="New Terrain" tile="-1"/>
+   <terrain name="collision" tile="-1"/>
+   <terrain name="New Terrain" tile="1"/>
+  </terraintypes>
+  <tile id="0" terrain="1,1,1,1"/>
+  <tile id="1" terrain="2,2,2,2"/>
+  <tile id="2" terrain="1,1,1,1"/>
+  <tile id="3" terrain="1,1,1,1"/>
+ </tileset>
+ <tileset firstgid="5" name="grassLeft" tilewidth="32" tileheight="32">
+  <image source="../COMP285-Project/images/levels/Platformer Pack/Tiles/grassLeft.png" width="70" height="70"/>
+ </tileset>
+ <tileset firstgid="9" name="grassRight" tilewidth="32" tileheight="32">
+  <image source="../COMP285-Project/images/levels/Platformer Pack/Tiles/grassRight.png" width="70" height="70"/>
+ </tileset>
+ <tileset firstgid="13" name="buttonBlue" tilewidth="32" tileheight="32">
+  <image source="../COMP285-Project/images/levels/Platformer Pack/Items/buttonBlue.png" width="70" height="70"/>
+ </tileset>
  <layer name="Tile Layer 1" width="20" height="20">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWjYBSMglEwCkgHADV9EcVABgAA
+   H4sIAAAAAAAAC2NgGAWjYBTQCzBDMQsJmBkN41OHi8alH5dacs3BZi4hc7CJo5tJrHmEwgGXebjcgUsPIbeQ6z5yzSOGjSvsycUg8wBzk7dwQAYAAA==
   </data>
  </layer>
+ <layer name="ground" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBTgAkw0wKNgFAwXAACQY/3RQAYAAA==
+  </data>
+ </layer>
+ <objectgroup name="Collision">
+  <object x="0" y="320" width="640" height="32"/>
+ </objectgroup>
 </map>

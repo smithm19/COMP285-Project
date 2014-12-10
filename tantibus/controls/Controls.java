@@ -23,7 +23,7 @@ public class Controls extends PlayerController{
 			player.movementLeft(delta);
 		}
 		else{
-			player.setMovement(false);
+			player.setMovement(false );
 		}
 		
 		if(input.isKeyDown(Input.KEY_UP )||input.isKeyDown(Input.KEY_W)){

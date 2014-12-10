@@ -21,10 +21,15 @@ public abstract class Character extends LevelObject {
 	protected float maxSpeed = 1;
 	protected float accelerationSpeed = 2;
 	protected float decelerationSpeed = 2;
+
 	protected Facing facing;
 
 	public Character(float x, float y) throws SlickException{
 		super(x,y);
+		
+		this.x = positionX;
+		this.y = positionY;
+		
 		setSprite(new Image("images/Place_holder.png"));
 		facing = Facing.left;
 	}
@@ -84,39 +89,37 @@ public abstract class Character extends LevelObject {
 	}
 	public void jump(int delta){
 		if(onGround){
-			ySpeed = -0.4f;	
+			positionY = positionY - (0.15f*delta);
 			jumpingMovement = true;
 		}
 		else
+			positionY = positionY + (0.15f*delta);
 			jumpingMovement = false;
 			
 	}
 
 	public void movementLeft(int delta){
 
-//		if(xSpeed >- maxSpeed){
-//			xSpeed -= accelerationSpeed*delta;
-//			if(xSpeed < -maxSpeed){
-//				xSpeed = -maxSpeed;
-//			}
-//
-//		}
 		
-		xSpeed -= (0.15f*delta);
+		positionX = positionX - (0.15f*delta);
+	
 		movement = true;
 		facing = Facing.left;
 	}
 
 	public void movementRight(int delta){
 
-//		if(xSpeed < maxSpeed){
-//			xSpeed += accelerationSpeed*delta;
-//			if(xSpeed > -maxSpeed){
-//				xSpeed = maxSpeed;
-//			}
-//
-//		}
-		xSpeed += (0.15f*delta);
+	if(xSpeed < maxSpeed){
+			xSpeed += accelerationSpeed*delta;
+			if(xSpeed > -maxSpeed){
+				xSpeed = maxSpeed;
+				
+			}
+
+		}
+		
+		positionX = positionX + (0.15f*delta);
+		
 		movement = true;
 		facing = Facing.right;
 	}
@@ -125,17 +128,15 @@ public abstract class Character extends LevelObject {
 	public void render(float offsetX, float offsetY){
 
 		if(movement){
-			movementAnimation.get(facing).draw(x-1-offsetX,y-1-offsetY);	
+			
+			movementAnimation.get(facing).draw(positionX-1-offsetX,positionY-1-offsetY);	
 		}
 		else if(jumpingMovement){
 			
-				jumpingAnimation.get(facing).draw(x-20+offsetX,y-20+offsetY);	
-				
-			
-			
+				jumpingAnimation.get(facing).draw(positionX-20+offsetX,positionY-20+offsetY);		
 		}
 		else{
-			sprites.get(facing).draw(x-1-offsetX,y-1-offsetY);	
+			sprites.get(facing).draw(positionX-1-offsetX,positionY-1-offsetY);	
 		}
 
 	}
