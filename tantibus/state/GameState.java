@@ -10,7 +10,6 @@ import org.newdawn.slick.state.StateBasedGame;
 import tantibus.character.Enemy;
 import tantibus.character.Player;
 import tantibus.controls.Controls;
-import tantibus.controls.PlayerController;
 import tantibus.level.Level;
 import tantibus.physics.Physics;
 
@@ -36,9 +35,9 @@ class GameState extends BasicGameState {
 		
 		level = new Level(startlevel, player); //load level and character + player
 		
-		controls = new Controls(player); 
+		controls = new Controls(player); //load controls
 				
-		physics = new Physics();
+		physics = new Physics(); //load physics
 	}
 	
 	public void update (GameContainer container, StateBasedGame sbg, int delta) throws SlickException{

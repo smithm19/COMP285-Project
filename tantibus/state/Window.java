@@ -10,7 +10,7 @@ import org.newdawn.slick.state.StateBasedGame;
 public class Window extends StateBasedGame{
 	
 	public static final int windowWidth = 800;
-	public static final int windowHeight = windowWidth / 16*9; //it will adjust to window width
+	public static final int windowHeight = windowWidth / 16*9; //adjusts to width
 	public static final float scale = (float) (1.25*((double)windowWidth/800));
 	public static final String GameName = "Tantibus";
 	
@@ -23,7 +23,7 @@ public class Window extends StateBasedGame{
 	
 	public void initStatesList(GameContainer arg0) throws SlickException {
 		
-		addState(new GameState("level_1"));
+		addState(new GameState("level_0")); //name of file that loads
 		
 		this.enterState(0);
 	}

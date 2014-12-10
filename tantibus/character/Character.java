@@ -30,8 +30,7 @@ public abstract class Character extends LevelObject {
 		this.x = positionX;
 		this.y = positionY;
 		
-		setSprite(new Image("images/Place_holder.png"));
-		facing = Facing.right;
+		facing = Facing.right; //default direction
 	}
 
 
@@ -72,21 +71,6 @@ public abstract class Character extends LevelObject {
 		movement = move;
 	}
 
-	
-	public void decelerate(int delta){
-		if(xSpeed > 0){
-			xSpeed -= decelerationSpeed*delta;
-			if(xSpeed < 0){
-				xSpeed = 0;
-			}
-		}
-		else if(xSpeed < 0){
-			if(xSpeed > 0){
-				xSpeed = 0;
-			}
-		}
-
-	}
 	public void jump(){
 		if(onGround){
 			ySpeed = -0.4f;
@@ -104,15 +88,7 @@ public abstract class Character extends LevelObject {
 
 	public void movementRight(int delta){
 
-	if(xSpeed < maxSpeed){
-			xSpeed += accelerationSpeed*delta;
-			if(xSpeed > -maxSpeed){
-				xSpeed = maxSpeed;
-				
-			}
-
-		}
-		
+			
 		positionX = positionX + (0.15f*delta);
 		
 		movement = true;

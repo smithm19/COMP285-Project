@@ -21,7 +21,7 @@ public abstract class LevelObject {
 		this.x = x;
 		this.y = y;
 		
-		collisionDetection = new AACollisionDetection(x,y, 32, 32);
+		collisionDetection = new AACollisionDetection(x,y, 32, 32); //collision detection on a square 32x32 (tile size)
 	}
 	
 	public void applyGravity(float gravity){

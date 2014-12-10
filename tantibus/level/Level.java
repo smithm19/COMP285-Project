@@ -15,12 +15,12 @@ import tantibus.enums.Gravity;
 public class Level {
 	private TiledMap map;
 	
-	private ArrayList<Character> characters;
-	private ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+	private ArrayList<Character> characters; //list of characters
+	private ArrayList<Enemy> enemies = new ArrayList<Enemy>(); //list of enemies <-- if we won't manage to figure it out, delete
 	private Player player;
 	private Enemy enemy;
 	
-	private ArrayList<LevelObject> levelObjects;
+	private ArrayList<LevelObject> levelObjects;//list of objects on the map 
 	
 	private Tile[][] tiles;
 	
@@ -28,14 +28,14 @@ public class Level {
 	
 	public Level(String title, Player player) throws SlickException {
 		map = new TiledMap("images/levels/"+ title + ".tmx");
-		characters = new ArrayList<Character>();
+		characters = new ArrayList<Character>(); //initializes characters (player, enemies)
 		
-		levelObjects = new ArrayList<LevelObject>();
+		levelObjects = new ArrayList<LevelObject>(); 
 		
 		this.player = player;
 		addCharacter(player);
 		
-		//loadTileMap();
+		//loadTileMap(); <-- commented out, because map didn't have collision layer
 		loadObjects();
 		background = new Image("images/backgrounds/" + map.getMapProperty("","background_02.jpg"));
 	}
@@ -52,7 +52,7 @@ public class Level {
 	}
 	
 	
-	private void loadTileMap(){
+	private void loadTileMap(){ //objects loaded into array
 		tiles = new Tile[map.getWidth()][map.getHeight()];
 		int layer = map.getLayerIndex("CollisionLayer");
 		
@@ -63,10 +63,10 @@ public class Level {
 		
 		for(int i = 0; i <map.getWidth(); ++i){
 			for(int j = 0; j < map.getHeight();++j){
-				int tileID = map.getTileId(i, j, layer);
+				int tileID = map.getTileId(i, j, layer); //get's tile
 				Tile tile = null;
 				
-				switch(map.getTileProperty(tileID, "tileType", "solid")){
+				switch(map.getTileProperty(tileID, "tileType", "solid")){//checks kind of tile (air or ground)
 				case "air":
 					tile = new AirTile(i, j);
 					break;
@@ -108,14 +108,14 @@ public class Level {
 	
 	public int getXOffset() {
 		int offsetX = 0;
-		int halfWidth = (int) (Window.windowWidth/Window.scale/2);
+		int halfWidth = (int) (Window.windowWidth/Window.scale/2);//calculates if player is in middle of screen
 		int maxX = (int) (map.getWidth()*32) - halfWidth;
 		
 		if(player.getX() < halfWidth){
-			offsetX = 0;
+			offsetX = 0;    //player between left side of map(0) and half of screen.
 		}
-		else if(player.getX() >maxX){
-			offsetX = maxX - halfWidth;
+		else if(player.getX() >maxX){ 
+			offsetX = maxX - halfWidth; //player between max scrolling point of map and min width. 
 		}
 		else{
 			offsetX = (int) (player.getX()-halfWidth);
@@ -124,7 +124,7 @@ public class Level {
 		return offsetX;
 	}
 	
-	public int getYOffset() {
+	public int getYOffset() { //same as getXOffset
 		int offsetY = 0;
 		int halfHeight = (int)(Window.windowHeight/Window.scale/2);
 		int maxY = (int)(map.getHeight()*32) - halfHeight;
@@ -147,13 +147,13 @@ public class Level {
 		int offsetX = getXOffset();
 		int offsetY = getYOffset();
 		
-		//backgroundRender();
+		
 		map.render(-(offsetX%32), -(offsetY%32), offsetX/32, offsetY/32, 33, 19);
 		
 		for(LevelObject o: levelObjects){
 			o.render(offsetX, offsetY);
 		}
-		for(Character ch: characters){
+		for(Character ch: characters){ //render characters on top of map
 			ch.render(offsetX - 20, offsetY- 100); 
 		}	
 		
@@ -162,16 +162,5 @@ public class Level {
 		}
 	}
 		
-	public void backgroundRender() {
-		 float backgroundXScrollValue = (background.getWidth()-Window.windowWidth/Window.scale);
-	     float backgroundYScrollValue = (background.getHeight()-Window.windowHeight/Window.scale);
-	     
-	     float mapXScrollValue = ((float)map.getWidth()*32-Window.windowWidth/Window.scale);
-	     float mapYScrollValue = ((float)map.getHeight()*32-Window.windowHeight/Window.scale);
-	     
-	     float scrollXFactor = backgroundXScrollValue/mapXScrollValue * 1;
-	     float scrollYFactor = backgroundYScrollValue/mapYScrollValue * -1;
-	     
-	     background.draw(this.getXOffset()*scrollXFactor, this.getYOffset()*scrollYFactor);
-	}
+	
 }

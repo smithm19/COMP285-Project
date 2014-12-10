@@ -13,17 +13,9 @@ public class Physics {
 	private final float gravity = 0.4f;
 	
 	public void controlPhysics(Level level, int delta){
-		controlCharacters(level, delta);
 		controlLevelObjects(level, delta);
 	}
-	
-	private void controlCharacters(Level level, int delta){
-		for (Character ch: level.getCharacters()){
-			if(!ch.isMoving()){
-				ch.decelerate(delta);
-			}
-		}
-	}
+
 	
 	private void controlLevelObjects(Level level, int delta){
 		for(LevelObject o: level.getLevelObjects()){
@@ -33,19 +25,19 @@ public class Physics {
 	
 	private void controlGameObject(LevelObject obj, Level level, int delta){
 		
-		obj.setOnGround(isOnGround(obj, level.getTiles()));
+		obj.setOnGround(isOnGround(obj, level.getTiles())); //updates object
 		
-		if(!obj.isOnGround() || obj.getYSpeed() < 0){
+		if(!obj.isOnGround() || obj.getYSpeed() < 0){ //applies gravity if in air, or jumping
 			obj.applyGravity(gravity*delta);
 		}
 		else{
 			obj.setYSpeed(0);
 		}
 		
-		float xMovement = obj.getXSpeed()*delta;
+		float xMovement = obj.getXSpeed()*delta;// calculates movement
 		float yMovement = obj.getYSpeed()*delta;
 		
-		float stepX = 0;
+		float stepX = 0; //calculates steps
 		float stepY = 0;
 		
 		if(xMovement != 0){
@@ -78,14 +70,14 @@ public class Physics {
 	
 	private boolean isOnGround(LevelObject obj, Tile[][] mapTile){
 		
-		ArrayList<Tile> tiles = obj.getCollisionDetection().getTiles(mapTile);
+		ArrayList<Tile> tiles = obj.getCollisionDetection().getTiles(mapTile);//get ground tiles
 		
-		obj.getCollisionDetection().movePosition(0, 1);
+		obj.getCollisionDetection().movePosition(0, 1); //moves tile down to check if character is above the ground
 		
 		for(Tile t: tiles){
 			if(t.getCollisionDetection() != null){
 				if(t.getCollisionDetection().checkCollision(obj.getCollisionDetection())){
-					obj.getCollisionDetection().movePosition(0, -1);
+					obj.getCollisionDetection().movePosition(0, -1); //moves tile back to place
 					return true;
 				}
 			}
@@ -95,6 +87,19 @@ public class Physics {
 		return false;
 	}
 	
+	private boolean checkCollision(LevelObject obj, Tile[][] mapTile){
+			
+		ArrayList<Tile> tiles = obj.getCollisionDetection().getTiles(mapTile);
+		for(Tile t: tiles){
+			if(t.getCollisionDetection() != null){//checks for collision of tile
+				if(t.getCollisionDetection().checkCollision(obj.getCollisionDetection())){
+					return true;
+				}
+				
+			}
+		}
+		return false;
+	}	
 }
 	
 	
