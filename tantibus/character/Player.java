@@ -16,6 +16,7 @@ public class Player extends Character {
 									new Image("images/characters/p1_walk06.png"),new Image("images/characters/p1_walk07.png"),
 									new Image("images/characters/p1_walk08.png"),new Image("images/characters/p1_walk09.png"),
 									new Image("images/characters/p1_walk10.png"),new Image("images/characters/p1_walk11.png")}, 50);
+	
 		
 		setJumpingAnimation(new Image[]{new Image("images/characters/p1_jump.png"), new Image("images/characters/p1_hurt.png"), new Image("images/characters/p1_duck.png"), new Image("images/characters/p1_stand.png") }, 200);
 		

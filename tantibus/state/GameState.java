@@ -11,6 +11,7 @@ import tantibus.character.Player;
 import tantibus.controls.Controls;
 import tantibus.controls.PlayerController;
 import tantibus.level.Level;
+import tantibus.physics.Physics;
 
 
 
@@ -20,7 +21,8 @@ class GameState extends BasicGameState {
 	
 	private String startlevel;
 	private Player player;
-	private PlayerController controls;
+	private Controls controls;
+	Physics physics;
 	
 	
 	public GameState(String startLevel){
@@ -28,27 +30,27 @@ class GameState extends BasicGameState {
 	}
 	
 	public void init (GameContainer container, StateBasedGame sbg) throws SlickException{
-		player = new Player(100,100); 
+		player = new Player(40,100); 
 		
 		level = new Level(startlevel, player); //load level and character + player
 		
 		controls = new Controls(player); 
-		
-		
-		//physics
+				
+		physics = new Physics();
 	}
 	
 	public void update (GameContainer container, StateBasedGame sbg, int delta) throws SlickException{
 		
 		controls.controlKeyboardInput(container.getInput(), delta);
 	
-		//physics.handlePhysics(level, delta, level.getGravity());
+		physics.controlPhysics(level, delta);
 	}
 	
 	public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException{
 		
 		g.scale(Window.scale, Window.scale);
 		level.render();
+		g.drawString("Tantibus ver. 0.1", 20, 20);
 		
 	}
 	

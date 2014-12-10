@@ -95,19 +95,6 @@ public class Physics {
 		return false;
 	}
 	
-	private boolean checkCollision(LevelObject obj, Tile[][] mapTile){
-			
-		ArrayList<Tile> tiles = obj.getCollisionDetection().getTiles(mapTile);
-		for(Tile t: tiles){
-			if(t.getCollisionDetection() != null){
-				if(t.getCollisionDetection().checkCollision(obj.getCollisionDetection())){
-					return true;
-				}
-				
-			}
-		}
-		return false;
-	}	
 }
 	
 	

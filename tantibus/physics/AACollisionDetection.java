@@ -42,7 +42,7 @@ public class AACollisionDetection extends CollisionDetection{
 		return occupiedTiles;
 	}
 
-	@Override
+	
 	public ArrayList<Tile> getGroundTiles(Tile[][] tiles) {
 		ArrayList<Tile> tilesUnder = new ArrayList<Tile>();
 		

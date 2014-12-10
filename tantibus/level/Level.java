@@ -21,7 +21,6 @@ public class Level {
 	
 	private Tile[][] tiles;
 	
-	private Gravity gravity;
 	private Image background;
 	
 	public Level(String title, Player player) throws SlickException {
@@ -33,7 +32,8 @@ public class Level {
 		this.player = player;
 		addCharacter(player);
 		
-		loadObjects();
+		//loadTileMap();
+		//loadObjects();
 		background = new Image("images/backgrounds/" + map.getMapProperty("","background_02.jpg"));
 	}
 	
@@ -44,6 +44,34 @@ public class Level {
 				case "Objective":
 					addLevelObject(new Objective(map.getObjectX(0, i), map.getObjectY(0, i)));
 					break;
+			}
+		}
+	}
+	
+	
+	private void loadTileMap(){
+		tiles = new Tile[map.getWidth()][map.getHeight()];
+		int layer = map.getLayerIndex("CollisionLayer");
+		
+		if(layer == -1){
+			System.err.print("no collision layer");
+			System.exit(-1);
+		}
+		
+		for(int i = 0; i <map.getWidth(); ++i){
+			for(int j = 0; j < map.getHeight();++j){
+				int tileID = map.getTileId(i, j, layer);
+				Tile tile = null;
+				
+				switch(map.getTileProperty(tileID, "tileType", "solid")){
+				case "air":
+					tile = new AirTile(i, j);
+					break;
+				default:
+					tile = new GroundTile(i, j);
+					break;
+				}
+				tiles[i][j] = tile;
 			}
 		}
 	}
@@ -119,15 +147,7 @@ public class Level {
 			ch.render(offsetX, offsetY); 
 		}	
 	}
-	
-	public Gravity getGravity() {
-		return this.gravity;
-	}
-	
-	public void setGravity(Gravity newGravity) {
-		this.gravity = newGravity;
-	}
-	
+		
 	public void backgroundRender() {
 		 float backgroundXScrollValue = (background.getWidth()-Window.windowWidth/Window.scale);
 	     float backgroundYScrollValue = (background.getHeight()-Window.windowHeight/Window.scale);

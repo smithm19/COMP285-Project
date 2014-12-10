@@ -5,22 +5,22 @@ import org.newdawn.slick.Input;
 import tantibus.character.Player;
 
 
-public class Controls extends PlayerController {
+public class Controls extends PlayerController{
+	
 	public Controls(Player player) {
 		super(player);
 	}
 	
 	public void controlInput(Input input, int delta) {
-		
-		controlInput(input, delta);
+		controlKeyboardInput(input, delta);
 	}
 	
 	public void controlKeyboardInput(Input input, int delta) {
 		if(input.isKeyDown(Input.KEY_RIGHT )||input.isKeyDown(Input.KEY_D)){
-			player.movementLeft(delta);
+			player.movementRight(delta);
 		}
 		else if(input.isKeyDown(Input.KEY_LEFT )||input.isKeyDown(Input.KEY_A)){
-			player.movementRight(delta);
+			player.movementLeft(delta);
 		}
 		else{
 			player.setMovement(false);
