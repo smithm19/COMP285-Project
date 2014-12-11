@@ -45,11 +45,12 @@ public class AACollisionDetection extends CollisionDetection{
 	
 	public ArrayList<Tile> getGroundTiles(Tile[][] tiles) {
 		ArrayList<Tile> tilesUnder = new ArrayList<Tile>();
-		
-		for(int i = (int)x; i <= x+width+(32 - width%32); i+=32){
-			 int j = (int) (y+height+1);
-			 tilesUnder.add(tiles[i/32][j/32]);
+		int j = (int) (y+height+1);
+
+		for(int i = (int) x; i <= x+width+(32-width%32); i+=32){
+			tilesUnder.add(tiles[i/32][j/32]);
 		}
+
 		return tilesUnder;
 	}
 }

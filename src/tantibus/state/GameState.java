@@ -30,13 +30,10 @@ class GameState extends BasicGameState {
 	private Player player;
 	private Controls controls;
 	private Physics physics;
-	/*	
-	
-	private Enemy enemy;
-	*/
 	
 	public GameState(String startLevel) {
 		this.startlevel = startLevel;
+		this.physics = new Physics(); //load physics
 	}
 	
 	public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
@@ -46,7 +43,6 @@ class GameState extends BasicGameState {
 		player = new Player(128, 416);
 		level.addCharacter(player);
 		controls = new Controls(player); //load controls
-		physics = new Physics(); //load physics
 	}
 	
 	public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException {
@@ -64,7 +60,7 @@ class GameState extends BasicGameState {
 	public void keyPressed(int key, char code) {
 		// closes the game if the pressed key is ESCAPE
 		if(key == Input.KEY_ESCAPE) {
-			System.exit(1);
+			System.exit(0);
 		}
 	}
 	

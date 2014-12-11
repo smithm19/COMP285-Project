@@ -17,17 +17,16 @@ public abstract class LevelObject {
 	
 	protected boolean onGround = true;
 
-
 	public LevelObject(float x, float y){
 		this.x = x;
 		this.y = y;
 		
 		//collision detection on a square 32x32 (tile size)
-		collisionDetection = new AACollisionDetection(x,y, 32, 32); 
+		collisionDetection = new AACollisionDetection(x, y, 32, 32); 
 	}
 	
 	public void applyGravity(float gravity){
-			if(y_velocity< maxFallSpeed) {
+			if(y_velocity < maxFallSpeed) {
 				y_velocity += gravity;
 				if(y_velocity > maxFallSpeed) {
 					y_velocity = maxFallSpeed;
@@ -43,11 +42,11 @@ public abstract class LevelObject {
 		return x_velocity;
 	}
 	
-	public void setYVelocity(float f){
+	public void setYVelocity(float f) {
 		y_velocity = f;
 	}
 	
-	public void setXVelocity(float f){
+	public void setXVelocity(float f) {
 		x_velocity = f;
 	}
 	
@@ -71,7 +70,7 @@ public abstract class LevelObject {
 	}
 	
 	public void updateCollisionDetection(){
-		collisionDetection.updatePosition(x,y);
+		collisionDetection.updatePosition(x, y);
 	}
 	
 	public boolean isOnGround(){

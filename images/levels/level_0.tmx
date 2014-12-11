@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="left-down" width="32" height="18" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="Tiles_32x32" tilewidth="32" tileheight="32">
-  <image source="../levels/Tiles_32x32.png" width="256" height="256"/>
+  <image source="Tiles_32x32.png" width="256" height="256"/>
+  <tile id="11">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="Tile Layer 1" width="32" height="18">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NlYGBgHcWjeIRjeoPhaj+xZg0X+9H1Dnf7CdlHK/tZ0Whq289IZzzQ5d0ohmAAzX4XyQAJAAA=
+   H4sIAAAAAAAAC2NlYGBgHcWjeIRjHjpjethvMgD2I5vFTkf72XHYj8sN1LIfptcYi/3IbjCmsv3Y/IuNjyscyLWfkH+JNYtU+1mJtI8Ys9ix2M9IZzzQ5d0ohmAAGuzNKgAJAAA=
   </data>
  </layer>
 </map>

@@ -50,7 +50,7 @@ public class Level {
 		int layer = map.getLayerIndex("Tile Layer 1");
 		
 		if(layer == -1){
-			System.err.print("no Tile Layer 1r");
+			System.err.print("no Tile Layer 1");
 			System.exit(0);
 		}
 		

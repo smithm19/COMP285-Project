@@ -20,14 +20,10 @@ public class Player extends Character {
 		
 		collisionDetection = new AACollisionDetection(x + 3, y, 26, 32);
 
-		accelerationSpeed = 0.2f;
-		decelerationSpeed = 0.2f;
-		maxSpeed = 0.2f;
-		maxFallSpeed = 0.4f;
-		setJumpingAnimation(new Image[]{new Image("images/characters/p1_jump.png"), 
-										new Image("images/characters/p1_hurt.png"), 
-										new Image("images/characters/p1_duck.png"), 
-										new Image("images/characters/p1_stand.png") }, 200);
+		accelerationSpeed = 0.001f;
+		decelerationSpeed = 0.001f;
+		maxSpeed = 0.15f;
+		maxFallSpeed = 0.3f;
 	}
 
 	public void updateCollisionDetection() {

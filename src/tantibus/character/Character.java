@@ -22,22 +22,12 @@ public abstract class Character extends LevelObject {
 	protected HashMap<Facing, Image> sprites;
 	protected HashMap<Facing,Animation> movingAnimations;
 	
-	protected HashMap<Facing, Animation> movementAnimation;
-	protected HashMap<Facing, Animation> jumpingAnimation;
-	
 	protected boolean jump = false;
-	protected boolean jumpingMovement = false;
 
 	public Character(float x, float y) throws SlickException {
 		super(x, y);
 		facing = Facing.RIGHT; //default direction
 		setSprite(new Image("images/characters/p1_walk02.png"));
-		/*
-		this.x = positionX;
-		this.y = positionY;
-		
-		
-		*/
 	}
 	
 	public float getX() {
@@ -49,9 +39,9 @@ public abstract class Character extends LevelObject {
 	}
 
 	public void setSprite(Image img){
-		sprites = new HashMap<Facing, Image>();
-		sprites.put(Facing.LEFT, img.getFlippedCopy(true, false));
+		sprites = new HashMap<Facing,Image>();
 		sprites.put(Facing.RIGHT, img);
+		sprites.put(Facing.LEFT , img.getFlippedCopy(true, false));
 	}
 	
 	protected void setMovingAnimation(Image[] images, int frameDuration){
@@ -67,16 +57,7 @@ public abstract class Character extends LevelObject {
 		movingAnimations.put(Facing.LEFT, facingLeftAnimation);
 
 	}
-
-	protected void setJumpingAnimation(Image[] images, int frameDuration){
-		jumpingAnimation = new HashMap<Facing, Animation>();
-		jumpingAnimation.put(Facing.RIGHT, new Animation(images, frameDuration));
-		Animation facingLeftAnimation = new Animation();
-		for(Image i: images){
-			facingLeftAnimation.addFrame(i.getFlippedCopy(true, false), frameDuration);
-		}
-		jumpingAnimation.put(Facing.LEFT, facingLeftAnimation);
-	}
+	
 	public boolean isMoving(){
 		return movement;
 	}
@@ -96,10 +77,6 @@ public abstract class Character extends LevelObject {
 			if(x_velocity > 0)
 				x_velocity = 0;
 		}
-	}
-	
-	public boolean isJumping(){
-		return jumpingMovement;
 	}
 	
 	public void jump(){
