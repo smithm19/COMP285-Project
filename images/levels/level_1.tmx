@@ -8,10 +8,4 @@
    H4sIAAAAAAAAC2NlYGBgHcWDAtMDjNo/av+o/aP2D0b7GemAB7qMH8WDCwMAuiDXGQAJAAA=
   </data>
  </layer>
- <objectgroup name="Object Layer 1">
-  <object x="64" y="416" width="832" height="32"/>
-  <object x="896" y="96" width="32" height="352"/>
-  <object x="96" y="64" width="832" height="32"/>
-  <object x="64" y="64" width="32" height="352"/>
- </objectgroup>
 </map>

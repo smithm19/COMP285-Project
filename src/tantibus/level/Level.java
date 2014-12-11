@@ -15,6 +15,7 @@ import tantibus.enums.Gravity;
 public class Level {
 	private TiledMap map;
 	
+	/*
 	private ArrayList<Character> characters; //list of characters
 	private ArrayList<Enemy> enemies = new ArrayList<Enemy>(); //list of enemies <-- if we won't manage to figure it out, delete
 	private Player player;
@@ -25,9 +26,12 @@ public class Level {
 	private Tile[][] tiles;
 	
 	private Image background;
+	*/
 	
-	public Level(String title, Player player) throws SlickException {
-		map = new TiledMap("images/levels/"+ title + ".tmx");
+	public Level(String title) throws SlickException {
+		map = new TiledMap("images/levels/" + title + ".tmx", "images/levels");
+		
+		/*
 		characters = new ArrayList<Character>(); //initializes characters (player, enemies)
 		
 		levelObjects = new ArrayList<LevelObject>(); 
@@ -38,8 +42,10 @@ public class Level {
 		//loadTileMap(); <-- commented out, because map didn't have collision layer
 		loadObjects();
 		background = new Image("images/backgrounds/" + map.getMapProperty("","background_02.jpg"));
+		*/
 	}
 	
+	/*
 	public void loadObjects() throws SlickException {
 		int objectAmount = map.getObjectCount(0);
 		for(int i = 0; i< objectAmount; ++i){
@@ -141,9 +147,12 @@ public class Level {
 		
 		return offsetY;
 	}
+	*/
 	
 	public void render() {
+		map.render(0, 0, 0, 0, 32, 18);
 		
+		/*
 		int offsetX = getXOffset();
 		int offsetY = getYOffset();
 		
@@ -160,6 +169,7 @@ public class Level {
 		for(Enemy e: enemies){
 			e.render(offsetX - 100, offsetY- 100);
 		}
+		*/
 	}
 		
 	
