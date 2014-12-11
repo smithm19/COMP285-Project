@@ -1,6 +1,5 @@
 package tantibus.enums;
 
 public enum Facing {
-
-	left, right
+	LEFT, RIGHT
 }
