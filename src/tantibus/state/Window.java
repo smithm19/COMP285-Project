@@ -16,7 +16,7 @@ public class Window extends StateBasedGame {
 	// base screen resolution: 1280 x 720
 	// tiles: 32 x 32 size, but they are adjusted to 40 x 40 size at 1280 x 720 (aspect ratio of 1.25)
 	private static final double	ASPECT_RATIO 	= 1.25;
-	public static final float 	SCALE 			= (float) (ASPECT_RATIO * ((double) WINDOW_WIDTH / 800));
+	public static final float 	SCALE 			= (float) (ASPECT_RATIO * ((double) WINDOW_WIDTH / 1280));
 	public static final String 	GAME_NAME 		= "Tantibus";
 	
 	public Window() {
