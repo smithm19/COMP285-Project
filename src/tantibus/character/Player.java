@@ -9,6 +9,9 @@ public class Player extends Character {
 	AACollisionDetection collisionDetection;
 	public Player(float x, float y) throws SlickException{
 		super (x,y);
+		sprite = new Image("images/characters/p1_walk02.png"); //CHANGE IT
+		
+		/*
 		setSprite(new Image("images/characters/p1_stand.png"));
 		setMovingAnimation(new Image[]{new Image("images/characters/p1_walk01.png"),
 									new Image ("images/characters/p1_walk02.png"), new Image("images/characters/p1_walk03.png"),
@@ -26,9 +29,18 @@ public class Player extends Character {
 		decelerationSpeed = 0.2f;
 		maxSpeed = 0.2f;
 		maxFallSpeed = 0.4f;
+		*/
 	}
 
 	public void updateCollisionDetection() {
 		collisionDetection.updatePosition(x + 4, y);
+	}
+	
+	public void moveLeft(int delta) {
+		x = x - (0.15f*delta);
+	}
+
+	public void moveRight(int delta) {
+		x = x + (0.15f*delta);
 	}
 }

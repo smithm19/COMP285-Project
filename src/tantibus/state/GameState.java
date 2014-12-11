@@ -1,6 +1,8 @@
 package tantibus.state;
 
 // game files import
+import tantibus.character.Player;
+import tantibus.controls.Controls;
 import tantibus.level.Level;
 /*
 import tantibus.character.Enemy;
@@ -8,6 +10,8 @@ import tantibus.character.Player;
 import tantibus.controls.Controls;
 import tantibus.physics.Physics;
 */
+
+
 
 // slick2D library import
 import org.newdawn.slick.GameContainer;
@@ -21,10 +25,10 @@ class GameState extends BasicGameState {
 	
 	private Level level;
 	private String startlevel;
-	
-	/*
 	private Player player;
 	private Controls controls;
+	
+	/*	
 	private Physics physics;
 	private Enemy enemy;
 	*/
@@ -37,16 +41,17 @@ class GameState extends BasicGameState {
 		// loads the correct level for the initialized level variable
 		level = new Level(startlevel);
 		
-		/*
-		player = new Player(100,100); 
+		player = new Player(128, 416);
+		level.addCharacter(player);
 		controls = new Controls(player); //load controls
+		/*
 		physics = new Physics(); //load physics
 		*/
 	}
 	
 	public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException {
-		/*
 		controls.controlKeyboardInput(container.getInput(), delta);
+		/*
 		physics.controlPhysics(level, delta);
 		*/
 	}

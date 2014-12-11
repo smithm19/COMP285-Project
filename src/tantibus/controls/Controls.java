@@ -16,19 +16,12 @@ public class Controls extends PlayerController{
 	}
 	
 	public void controlKeyboardInput(Input input, int delta) {
-		if(input.isKeyDown(Input.KEY_RIGHT )||input.isKeyDown(Input.KEY_D)){
-			player.movementRight(delta);
+		//we can both use the WASD or arrow keys to move around, obviously we can't move both left and right simultaneously
+		if(input.isKeyDown(Input.KEY_A) || input.isKeyDown(Input.KEY_LEFT)) {
+			player.moveLeft(delta);
+		} 
+		else if(input.isKeyDown(Input.KEY_D) || input.isKeyDown(Input.KEY_RIGHT)) {
+			player.moveRight(delta);
 		}
-		else if(input.isKeyDown(Input.KEY_LEFT )||input.isKeyDown(Input.KEY_A)){
-			player.movementLeft(delta);
-		}
-		else{
-			player.setMovement(false );
-		}
-		
-		if(input.isKeyDown(Input.KEY_UP )||input.isKeyDown(Input.KEY_W)){
-			player.jump();
-		}
-		
 	}
 }

@@ -2,16 +2,22 @@ package tantibus.character;
 
 import java.util.HashMap;
 
+// game files import
 import tantibus.enums.Facing;
 import tantibus.level.LevelObject;
+
+// slick2D library import
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.SlickException;
 
-
-
-public abstract class Character extends LevelObject {
-	    
+public abstract class Character {
+	
+	protected float x;
+	protected float y;
+	protected Image sprite;
+	
+	/*
 	protected HashMap<Facing, Image> sprites;
 	protected HashMap<Facing, Animation> movementAnimation;
 	protected HashMap<Facing, Animation> jumpingAnimation;
@@ -21,19 +27,36 @@ public abstract class Character extends LevelObject {
 	protected float maxSpeed = 1;
 	protected float accelerationSpeed = 2;
 	protected float decelerationSpeed = 2;
-
 	protected Facing facing;
+	*/
 
-	public Character(float x, float y) throws SlickException{
+	public Character(float x, float y) throws SlickException {
+		this.x = x;
+		this.y = y;
+		
+		sprite = new Image("images/characters/p1_walk02.png");
+		/*
 		super(x,y);
 		
 		this.x = positionX;
 		this.y = positionY;
 		
 		facing = Facing.right; //default direction
+		*/
+	}
+	
+	public float getX() {
+		return x;
 	}
 
+	public float getY() {
+		return y;
+	}
 
+	public void render() {
+		sprite.draw(x - 2, y - 2);
+	}
+	/*
 	public void setSprite(Image img){
 		sprites = new HashMap<Facing, Image>();
 		sprites.put(Facing.left, img.getFlippedCopy(true, false));
@@ -111,6 +134,6 @@ public abstract class Character extends LevelObject {
 		}
 
 	}
-
+	*/
 }
 

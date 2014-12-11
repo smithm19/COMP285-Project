@@ -17,10 +17,11 @@ import org.newdawn.slick.tiled.TiledMap;
 
 
 public class Level {
+	
 	private TiledMap map;
 	
-	/*
 	private ArrayList<Character> characters; //list of characters
+	/*
 	private ArrayList<Enemy> enemies = new ArrayList<Enemy>(); //list of enemies <-- if we won't manage to figure it out, delete
 	private Player player;
 	private Enemy enemy;
@@ -34,10 +35,9 @@ public class Level {
 	
 	public Level(String title) throws SlickException {
 		map = new TiledMap("images/levels/" + title + ".tmx", "images/levels");
-		
-		/*
 		characters = new ArrayList<Character>(); //initializes characters (player, enemies)
 		
+		/*
 		levelObjects = new ArrayList<LevelObject>(); 
 		
 		this.player = player;
@@ -88,10 +88,11 @@ public class Level {
 			}
 		}
 	}
-	
+	*/ 
 	public void addCharacter(Character ch) {
 		characters.add(ch);	
 	}
+	/*
 	
 	public ArrayList<Character> getCharacters() {
 		return characters;
@@ -155,6 +156,11 @@ public class Level {
 	
 	public void render() {
 		map.render(0, 0, 0, 0, 32, 18);
+		
+		//and then render the characters on top of the map
+		for(Character c : characters) {
+			c.render();
+		}
 		
 		/*
 		int offsetX = getXOffset();
