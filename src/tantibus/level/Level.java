@@ -1,16 +1,20 @@
 package tantibus.level;
 
-import java.util.ArrayList;
-
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.tiled.TiledMap;
-
+// game files import
 import tantibus.state.Window;
 import tantibus.character.Character;
 import tantibus.character.Enemy;
 import tantibus.character.Player;
 import tantibus.enums.Gravity;
+
+import java.util.ArrayList;
+
+//slick2D library import
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.tiled.TiledMap;
+
+
 
 public class Level {
 	private TiledMap map;
