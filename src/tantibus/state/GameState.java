@@ -13,6 +13,8 @@ import tantibus.physics.Physics;
 
 
 
+import tantibus.physics.Physics;
+
 // slick2D library import
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -27,9 +29,9 @@ class GameState extends BasicGameState {
 	private String startlevel;
 	private Player player;
 	private Controls controls;
-	
-	/*	
 	private Physics physics;
+	/*	
+	
 	private Enemy enemy;
 	*/
 	
@@ -44,16 +46,12 @@ class GameState extends BasicGameState {
 		player = new Player(128, 416);
 		level.addCharacter(player);
 		controls = new Controls(player); //load controls
-		/*
 		physics = new Physics(); //load physics
-		*/
 	}
 	
 	public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException {
 		controls.controlKeyboardInput(container.getInput(), delta);
-		/*
 		physics.controlPhysics(level, delta);
-		*/
 	}
 	
 	public void render(GameContainer container, StateBasedGame sbg, Graphics graphics) throws SlickException {

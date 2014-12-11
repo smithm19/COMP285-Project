@@ -11,35 +11,28 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.SlickException;
 
-public abstract class Character {
+public abstract class Character extends LevelObject {
 	
-	protected float x;
-	protected float y;
+	protected float maxSpeed = 1;
+	protected float accelerationSpeed = 1;
+	protected float decelerationSpeed = 1;
 	protected Facing facing;
+	protected boolean movement = false;
+	
 	protected HashMap<Facing, Image> sprites;
 	protected HashMap<Facing,Animation> movingAnimations;
-	protected long lastTimeMoved;
-	/*
 	
 	protected HashMap<Facing, Animation> movementAnimation;
 	protected HashMap<Facing, Animation> jumpingAnimation;
-	protected boolean movement = false;
+	
 	protected boolean jump = false;
 	protected boolean jumpingMovement = false;
-	protected float maxSpeed = 1;
-	protected float accelerationSpeed = 2;
-	protected float decelerationSpeed = 2;
-	*/
 
 	public Character(float x, float y) throws SlickException {
-		this.x = x;
-		this.y = y;
+		super(x, y);
 		facing = Facing.RIGHT; //default direction
-		Image sprite = new Image("images/characters/p1_walk02.png");
-		setSprite(sprite);
+		setSprite(new Image("images/characters/p1_walk02.png"));
 		/*
-		super(x,y);
-		
 		this.x = positionX;
 		this.y = positionY;
 		
@@ -55,15 +48,6 @@ public abstract class Character {
 		return y;
 	}
 
-	public void render() {
-		//draw a moving animation if we have one and we moved within the last 150 miliseconds
-		if(movingAnimations != null && lastTimeMoved+150 > System.currentTimeMillis()){
-			movingAnimations.get(facing).draw(x-2,y-2);
-		}else{
-			sprites.get(facing).draw(x-2, y-2);
-		}
-	}
-	
 	public void setSprite(Image img){
 		sprites = new HashMap<Facing, Image>();
 		sprites.put(Facing.LEFT, img.getFlippedCopy(true, false));
@@ -83,78 +67,79 @@ public abstract class Character {
 		movingAnimations.put(Facing.LEFT, facingLeftAnimation);
 
 	}
-	/*
-	protected void setMovingAnimation(Image[] images, int frameDuration){
-		movementAnimation = new HashMap<Facing, Animation>();
-		movementAnimation.put(Facing.right, new Animation(images, frameDuration));
-		Animation facingLeftAnimation = new Animation();
-		for(Image i: images){
-			facingLeftAnimation.addFrame(i.getFlippedCopy(true, false), frameDuration);
-		}
-		movementAnimation.put(Facing.left, facingLeftAnimation);
-	}
-	
+
 	protected void setJumpingAnimation(Image[] images, int frameDuration){
 		jumpingAnimation = new HashMap<Facing, Animation>();
-		jumpingAnimation.put(Facing.right, new Animation(images, frameDuration));
+		jumpingAnimation.put(Facing.RIGHT, new Animation(images, frameDuration));
 		Animation facingLeftAnimation = new Animation();
 		for(Image i: images){
 			facingLeftAnimation.addFrame(i.getFlippedCopy(true, false), frameDuration);
 		}
-		jumpingAnimation.put(Facing.left, facingLeftAnimation);
+		jumpingAnimation.put(Facing.LEFT, facingLeftAnimation);
 	}
 	public boolean isMoving(){
 		return movement;
-	}
-	
-	public boolean isJumping(){
-		return jumpingMovement;
 	}
 
 	public void setMovement(boolean move){
 		movement = move;
 	}
 
+	//move towards x_velocity = 0
+	public void decelerate(int delta) {
+		if(x_velocity > 0){
+			x_velocity -= decelerationSpeed * delta;
+			if(x_velocity < 0)
+				x_velocity = 0;
+		}else if(x_velocity < 0){
+			x_velocity += decelerationSpeed * delta;
+			if(x_velocity > 0)
+				x_velocity = 0;
+		}
+	}
+	
+	public boolean isJumping(){
+		return jumpingMovement;
+	}
+	
 	public void jump(){
 		if(onGround){
-			ySpeed = -0.4f;
+			y_velocity = -0.4f;
 		}
 	}
 
-	public void movementLeft(int delta){
-
-		
-		positionX = positionX - (0.15f*delta);
-	
+	public void moveLeft(int delta){
+		//if we aren't already moving at maximum speed
+		if(x_velocity > -maxSpeed) {
+			//accelerate
+			x_velocity -= accelerationSpeed*delta;
+			if(x_velocity < -maxSpeed) {
+				//and if we exceed maximum speed, set it to maximum speed
+				x_velocity = -maxSpeed;
+			}
+		}
 		movement = true;
-		facing = Facing.left;
+		facing = Facing.LEFT;
 	}
 
-	public void movementRight(int delta){
-
-			
-		positionX = positionX + (0.15f*delta);
-		
+	public void moveRight(int delta){
+		if(x_velocity < maxSpeed){
+			x_velocity += accelerationSpeed*delta;
+			if(x_velocity > maxSpeed){
+				x_velocity = maxSpeed;
+			}
+		}
 		movement = true;
-		facing = Facing.right;
+		facing = Facing.RIGHT;
 	}
 	
-
-	public void render(float offsetX, float offsetY){
-
-		if(movement){
-			
-			movementAnimation.get(facing).draw(positionX-1-offsetX,positionY-1-offsetY);	
+	public void render() {
+		//draw a moving animation if we have one and we moved within the last 150 miliseconds
+		if(movingAnimations != null && movement){
+			movingAnimations.get(facing).draw(x-2,y-2);
+		}else{
+			sprites.get(facing).draw(x-2, y-2);
 		}
-		else if(jumpingMovement){
-			
-				jumpingAnimation.get(facing).draw(positionX-20+offsetX,positionY-20+offsetY);		
-		}
-		else{
-			sprites.get(facing).draw(positionX-1-offsetX,positionY-1-offsetY);	
-		}
-
 	}
-	*/
 }
 

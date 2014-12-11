@@ -9,53 +9,46 @@ public abstract class LevelObject {
 	
 	protected float x;
 	protected float	y;
-	protected float	xSpeed = 0;
-	protected float	ySpeed = 0;
-	protected float maxFallSpeed = 1;
-	protected boolean onGround = true;
-	protected float positionX;
-	protected float positionY;
 	protected CollisionDetection collisionDetection;
+	
+	protected float	x_velocity = 0;
+	protected float	y_velocity = 0;
+	protected float maxFallSpeed = 1;
+	
+	protected boolean onGround = true;
+
 
 	public LevelObject(float x, float y){
 		this.x = x;
 		this.y = y;
 		
-		collisionDetection = new AACollisionDetection(x,y, 32, 32); //collision detection on a square 32x32 (tile size)
+		//collision detection on a square 32x32 (tile size)
+		collisionDetection = new AACollisionDetection(x,y, 32, 32); 
 	}
 	
 	public void applyGravity(float gravity){
-		
-			if(ySpeed< maxFallSpeed){
-				ySpeed += gravity;
-				if(ySpeed > maxFallSpeed){
-					ySpeed = maxFallSpeed;
+			if(y_velocity< maxFallSpeed) {
+				y_velocity += gravity;
+				if(y_velocity > maxFallSpeed) {
+					y_velocity = maxFallSpeed;
 				}
 			}
 	}
 		
-	public float getYPosition(){
-		return positionY;
+	public float getYVelocity() {
+		return y_velocity;
 	}
 	
-	public float getXPosition(){
-		return positionX;
+	public float getXVelocity() {
+		return x_velocity;
 	}
 	
-	public float getYSpeed(){
-			return ySpeed;
-		}
-	
-	public float getXSpeed(){
-		return xSpeed;
+	public void setYVelocity(float f){
+		y_velocity = f;
 	}
 	
-	public void setYSpeed(float f){
-		ySpeed = f;
-	}
-	
-	public void setXSpeed(float f){
-		xSpeed = f;
+	public void setXVelocity(float f){
+		x_velocity = f;
 	}
 	
 	public float getY(){
@@ -92,8 +85,6 @@ public abstract class LevelObject {
 	public CollisionDetection getCollisionDetection(){
 		return collisionDetection;
 	}
-	
-	public abstract void render(float offset_x, float offset_y);
 
 }
 

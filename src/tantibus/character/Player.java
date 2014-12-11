@@ -7,7 +7,7 @@ import tantibus.enums.Facing;
 import tantibus.physics.AACollisionDetection;
 
 public class Player extends Character {
-	AACollisionDetection collisionDetection;
+	
 	public Player(float x, float y) throws SlickException{
 		super (x,y);
 		setSprite(new Image("images/characters/p1_walk02.png"));
@@ -17,31 +17,20 @@ public class Player extends Character {
 									new Image("images/characters/p1_walk06.png"),new Image("images/characters/p1_walk07.png"),
 									new Image("images/characters/p1_walk08.png"),new Image("images/characters/p1_walk09.png"),
 									new Image("images/characters/p1_walk10.png"),new Image("images/characters/p1_walk11.png")}, 50);
-		/*
-		setJumpingAnimation(new Image[]{new Image("images/characters/p1_jump.png"), new Image("images/characters/p1_hurt.png"), new Image("images/characters/p1_duck.png"), new Image("images/characters/p1_stand.png") }, 200);
 		
 		collisionDetection = new AACollisionDetection(x + 3, y, 26, 32);
-		
+
 		accelerationSpeed = 0.2f;
 		decelerationSpeed = 0.2f;
 		maxSpeed = 0.2f;
 		maxFallSpeed = 0.4f;
-		*/
+		setJumpingAnimation(new Image[]{new Image("images/characters/p1_jump.png"), 
+										new Image("images/characters/p1_hurt.png"), 
+										new Image("images/characters/p1_duck.png"), 
+										new Image("images/characters/p1_stand.png") }, 200);
 	}
 
 	public void updateCollisionDetection() {
-		collisionDetection.updatePosition(x + 4, y);
-	}
-	
-	public void moveLeft(int delta){
-		x = x - (0.15f * delta);
-		facing = Facing.LEFT;
-		lastTimeMoved = System.currentTimeMillis();
-	}
-
-	public void moveRight(int delta) {
-		x = x + (0.15f*delta);
-		facing = Facing.RIGHT;
-		lastTimeMoved = System.currentTimeMillis();
+		collisionDetection.updatePosition(x + 3, y);
 	}
 }
