@@ -13,9 +13,13 @@ public abstract class CollisionDetection {
 	}
 	
 	public abstract boolean checkCollision(AACollisionDetection cd);
+	
 	public abstract void updatePosition(float newX, float newY);
+	
 	public abstract void movePosition(float x, float y);
+	
 	public abstract ArrayList<Tile>getTiles(Tile[][] tiles);
+	
 	public abstract ArrayList<Tile> getGroundTiles(Tile[][] tiles);
 }
 

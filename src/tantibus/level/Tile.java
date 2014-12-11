@@ -13,11 +13,9 @@ public class Tile {
 		collisionDetection = null;
 	}
 	
-	
 	public CollisionDetection getCollisionDetection() {
 		return collisionDetection;
 	}
-	
 	
 	public int getX() {
 		return this.x;

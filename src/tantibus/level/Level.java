@@ -21,6 +21,7 @@ public class Level {
 	private TiledMap map;
 	
 	private ArrayList<Character> characters; //list of characters
+	private Tile[][] tiles;
 	/*
 	private ArrayList<Enemy> enemies = new ArrayList<Enemy>(); //list of enemies <-- if we won't manage to figure it out, delete
 	private Player player;
@@ -28,7 +29,7 @@ public class Level {
 	
 	private ArrayList<LevelObject> levelObjects;//list of objects on the map 
 	
-	private Tile[][] tiles;
+	
 	
 	private Image background;
 	*/
@@ -36,14 +37,14 @@ public class Level {
 	public Level(String title) throws SlickException {
 		map = new TiledMap("images/levels/" + title + ".tmx", "images/levels");
 		characters = new ArrayList<Character>(); //initializes characters (player, enemies)
-		
+		loadTileMap();
 		/*
 		levelObjects = new ArrayList<LevelObject>(); 
 		
 		this.player = player;
 		addCharacter(player);
 		
-		//loadTileMap(); <-- commented out, because map didn't have collision layer
+		//
 		loadObjects();
 		background = new Image("images/backgrounds/" + map.getMapProperty("","background_02.jpg"));
 		*/
@@ -60,14 +61,14 @@ public class Level {
 			}
 		}
 	}
-	
+	*/
 	
 	private void loadTileMap(){ //objects loaded into array
 		tiles = new Tile[map.getWidth()][map.getHeight()];
-		int layer = map.getLayerIndex("CollisionLayer");
+		int layer = map.getLayerIndex("Tile Layer 1");
 		
 		if(layer == -1){
-			System.err.print("no collision layer");
+			System.err.print("no Tile Layer 1r");
 			System.exit(0);
 		}
 		
@@ -88,15 +89,19 @@ public class Level {
 			}
 		}
 	}
-	*/ 
+
 	public void addCharacter(Character ch) {
 		characters.add(ch);	
 	}
-	/*
 	
 	public ArrayList<Character> getCharacters() {
 		return characters;
 	}
+	
+	public Tile[][] getTiles() {
+		return tiles;
+	}
+	/*
 	
 	public void addEnemy(Enemy e){
 		enemies.add(e);
@@ -113,9 +118,7 @@ public class Level {
 		return levelObjects;
 	}
 	
-	public Tile[][] getTiles() {
-		return tiles;
-	}
+	
 	
 	public int getXOffset() {
 		int offsetX = 0;
