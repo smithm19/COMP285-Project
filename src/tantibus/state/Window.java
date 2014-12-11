@@ -26,7 +26,7 @@ public class Window extends StateBasedGame {
 	
 	public void initStatesList(GameContainer gameContainer) throws SlickException {
 		// creates a game state, which does the whole logic and rendering for individual levels
-		addState(new GameState("level_1"));
+		addState(new GameState("level_0"));
 		this.enterState(0);
 	}
 	

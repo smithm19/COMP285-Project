@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="25" height="25" tilewidth="32" tileheight="32">
- <tileset firstgid="1" name="grass" tilewidth="32" tileheight="32">
-  <image source="../COMP285-Project/images/levels/Platformer Pack/Tiles/grass.png" width="70" height="70"/>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="32" height="18" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="Tiles_32x32" tilewidth="32" tileheight="32">
+  <image source="../levels/Tiles_32x32.png" width="256" height="256"/>
  </tileset>
- <layer name="Tile Layer 1" width="25" height="25">
+ <layer name="Tile Layer 1" width="32" height="18">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2PwQoAIAhDrfb/35yHTrLSQ3Xag+HA4dBMiPs0V3+s4cKazCN4hEwmkLtsH7OVjnibdZ16d3n2a/ZHZVeREEKIv0x/o64mxAkAAA==
+   H4sIAAAAAAAAC2NlYGBgHcWjeIRjeoPhaj+xZg0X+9H1Dnf7CdlHK/tZ0Whq289IZzzQ5d0ohmAAzX4XyQAJAAA=
   </data>
  </layer>
- <objectgroup name="Collision">
-  <object x="0" y="192" width="800" height="32"/>
- </objectgroup>
 </map>
